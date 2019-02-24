@@ -12,11 +12,28 @@
         
         <script type="text/babel"> 
             class App extends React.Component {
+                state = {
+                    name:'Ryu',
+                    age:34
+                }
+
+                handleClick(e){
+                    console.log(e.target);
+                }
+
+                handleMouseOver(e){
+                    console.log(e.target,e.pageX);
+                }
+
                 render() {
                     return (
                         <div className="app-content">
                             <h1> Hey h1 </h1> 
                             <p>{ Math.random() * 10}</p>
+                            <p>My name is { this.state.name } and Age is { this.state.age }</p>
+                            <button onClick={this.handleClick}>Click me</button>
+                            <button onMouseOver={this.handleMouseOver}>Hover me</button>
+                            <p onCopy={this.handleClick}>What we think, we are </p>
                         </div>
                     )
                 }
